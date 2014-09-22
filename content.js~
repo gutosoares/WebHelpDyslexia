@@ -1,0 +1,22 @@
+/**
+  *
+  *
+  *
+  *
+  **/
+
+$(document).ready(function(){
+  if(estilizer.status){
+    estilizer.reopen();
+  }else{
+    estilizer.initialize();
+    estilizer.open();
+  }
+});
+
+
+
+
+
+
+

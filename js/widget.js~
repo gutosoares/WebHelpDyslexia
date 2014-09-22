@@ -1,0 +1,232 @@
+/**
+*
+*   @requires jQuery
+*
+**/
+
+chromexia.widget = {
+  
+  // Armazena os principais elementos da estrutura do plugin
+  cache: {
+    box: null,
+    container: null,
+    font_section: null,
+    color_section: null,
+    align_section: null,
+    spacing_section: null,
+    reset_section: null
+  },
+
+  //Cria a interface de usuário
+  create: function(){
+    var self = chromexia.widget;
+
+    // div que que contém o plugin
+    self.cache.box = $("<div>", {
+      id: 'chromexia-box',
+      class: 'chromexia-top'
+    })
+    .appendTo(document.body);
+
+    self.cache.container = $("<div>", {
+      id: 'chromexia-container'
+    });
+
+    var italic_button = $("<div>", {
+      id: 'chromexia-italic-button',
+      class: 'chromexia-control chromexia-button chromexia-left',
+      title: 'Remover itálico'
+    })
+    .click(function() {
+            chromexia.style.cache.font_style = "normal";
+            chromexia.style.addStylesheetRules();
+          });
+
+    var bold_button = $("<div>", {
+      id: 'chromexia-bold-button',
+      class: 'chromexia-control chromexia-button chromexia-left',
+      title: 'Remover negrito'
+    })
+    .click(function() {
+            chromexia.style.cache.font_weight = "normal";
+            chromexia.style.addStylesheetRules();
+         });
+
+    var text_left_button = $("<div>", {
+      id: 'chromexia-text-left-button',
+      class: 'chromexia-button',
+      title: 'Alinhar texto à esquerda'
+    })
+    .click(function() {
+            chromexia.style.cache.text_align = "left";
+            chromexia.style.addStylesheetRules();
+         }); 
+
+    var paragraph_spacing_button = $("<div>", {
+      id: 'chromexia-paragraph-spacing',
+      class: 'chromexia-button chromexia-left',
+      title: 'Alinhar texto à esquerda'
+    })
+    .click(function() {
+            chromexia.style.cache.text_align = "left";
+            chromexia.style.addStylesheetRules();
+      }); 
+
+
+    var reset_button = $("<div>", {
+      id: 'chromexia-reset',
+      class: 'chromexia-button chromexia-left',
+      title: 'Remover o estilo aplicado'
+    })
+    .click(this.reset);
+
+    var moverVertical_button = $("<div>", {
+      id: 'chromexia-move-vertical',
+      class: 'chromexia-control chromexia-button chromexia-button-right',
+      title: 'Mover o plugin para baixo'
+    })
+    .click(this.togglePosition);
+
+       // Botão para fechar o plugin
+    var close_button = $("<div>", {
+      id: 'chromexia-close',
+      class: 'chromexia-button chromexia-button-right',
+      title: 'Fechar'
+    })
+    .click(chromexia.close);
+
+
+    var color = $("<div>", {
+      id: 'chromexia-font-color',
+      title: 'Cor do texto'
+    });
+
+     self.cache.font_section = $("<section>", {
+      id: 'chromexia-section-font',
+      class: 'chromexia-control-set'
+    })
+    .append(widgetUI.createFontSizeControl())
+    .append(widgetUI.createFontFamilyControl());
+
+    self.cache.color_section = $("<section>", {
+      id: 'chromexia-section-color',
+      class: 'chromexia-control-set'
+    })
+    .append(bold_button)
+    .append(italic_button)
+    .append(widgetUI.createFontColorControl())
+    .append(widgetUI.createBackgroundColorControl());
+
+     self.cache.align_section = $("<section>", {
+      id: 'chromexia-section-align',
+      class: 'chromexia-control-set'
+    })
+    .append(text_left_button);
+
+    self.cache.spacing_section = $("<section>", {
+      id: 'chromexia-section-align',
+      class: 'chromexia-control-set'
+    })
+    .append(widgetUI.createParagraphSpacingControl())
+    .append(widgetUI.createLineHeightControl())
+    .append(widgetUI.createLetterSpacingControl())
+    .append(widgetUI.createTextWidthControl());
+
+    self.cachereset_section = $("<section>", {
+      id: 'chromexia-section-reset',
+      class: 'chromexia-control-set'
+    })
+    .append(reset_button);
+
+    self.cache.container.appendTo(self.cache.box)
+    .append(close_button)
+    .append(moverVertical_button)
+    .append(self.cache.font_section)
+    .append(self.cache.color_section)
+    .append(self.cache.align_section)
+    .append(self.cache.spacing_section)
+    .append(self.cachereset_section);
+
+    this.setMargin("top");
+  },
+
+  // Abre o widget
+  open: function(){
+    if(!this.cache.box)
+      this.create();
+  },
+
+  //  Fecha o plugin
+  close: function() {
+    this.removeMargin(chromexia.options.position);
+    this.cache.box.hide();
+  },
+
+  // Reabre o plugin
+  reopen: function() {
+    this.setMargin(chromexia.options.position);
+    this.cache.box.show();
+  },
+
+  // Remove as alterações realizadas pelo plugin
+  reset: function (){
+    chromexia.style.removeStylesheetRules();
+  },
+
+  // Adiciona a margem no body, para o plugin não sobrepor a página
+  setMargin: function (position) {
+    if(position  == "top"){
+      $("body").removeClass("body-chromexia-bottom");
+      $("body").addClass("body-chromexia-top");
+    } else {
+      $("body").removeClass("body-chromexia-top");
+      $("body").addClass("body-chromexia-bottom");
+    }
+  },
+
+  // Remove a margin no body
+  removeMargin: function (position) {
+    if(position  == "bottom"){
+      $("body").removeClass("body-chromexia-bottom");
+    } else {
+      $("body").removeClass("body-chromexia-top");
+    }
+  },
+
+
+  // Move o plugin verticalmente
+  togglePosition: function() {
+    var pos = chromexia.options.position;
+
+    if (pos === 'bottom') {
+      pos = 'top';
+
+      // remove a ediciona as classes que setam as margens da página para o plugin não sobrepor
+      $('#chromexia-box')
+      .removeClass('chromexia-bottom')
+      .addClass('chromexia-top');
+
+      //$("body").attr('style',"margin-top: 30px !important; margin-bottom: 0");
+      
+      $('#chromexia-move-vertical').attr('title','Mover o plugin para baixo');
+
+    }
+    else {
+      pos = 'bottom';
+
+      // remove e adicona as classes de posicionamento do plugin
+      $('#chromexia-box')
+      .removeClass('chromexia-top')
+      .addClass('chromexia-bottom');
+
+      $('#chromexia-move-vertical').attr('title','Mover o plugin para cima');
+
+
+      //$("body").attr('style',"margin-top: 0; margin-bottom: 30px !important");
+    }
+
+    chromexia.widget.setMargin(pos);
+    chromexia.options.position = pos;
+  }
+
+};
