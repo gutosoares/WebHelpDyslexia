@@ -6,11 +6,11 @@
   **/
 
 $(document).ready(function(){
-  if(chromexia.status){
-    chromexia.reopen();
+  if(webHelpDyslexia.status){
+    webHelpDyslexia.reopen();
   }else{
-    chromexia.initialize();
-    chromexia.open();
+    webHelpDyslexia.initialize();
+    webHelpDyslexia.open();
   }
 });
 

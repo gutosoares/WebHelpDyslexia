@@ -3,26 +3,26 @@ var controlid = 0;
 $(document).keyup(function(e) {
 	if (e.keyCode == 27)
 	{
-	  //$("#chromexia-blackUper").remove();
-	  //$("#chromexia-blackBotton").remove();
-	  //$("#chromexia-select-reader-size").val('');
-	  //$("#chromexia-text").remove();
+	  //$("#webHelpDyslexia-blackUper").remove();
+	  //$("#webHelpDyslexia-blackBotton").remove();
+	  //$("#webHelpDyslexia-select-reader-size").val('');
+	  //$("#webHelpDyslexia-text").remove();
 	  removeElements();
 	}
 });
 		
 $(document).bind('mousemove', function(e){
-  $('#chromexia-tail').css({
+  $('#webHelpDyslexia-tail').css({
 	 top:   e.pageY - 1000
   });
-  $('#chromexia-blackUper').css({
+  $('#webHelpDyslexia-blackUper').css({
 	 top:   e.pageY - (2010 + tam)
   });
-  $('#chromexia-blackBotton').css({
+  $('#webHelpDyslexia-blackBotton').css({
 	 top:   e.pageY +12
   });
   
- // $('#chromexia-text').css({
+ // $('#webHelpDyslexia-text').css({
 	// top:   e.pageY -100,
 	// left:  e.pageX
   //});
@@ -68,15 +68,15 @@ function getAllBetween2(firstEl,lastEl)
  function removeHighLithAndScreens ()
  {
 	var aux = parseInt(controlid);
-	$("#chromexia-blackUper").remove();
-    $("#chromexia-blackBotton").remove();
-    $("#chromexia-select-reader-size").val('');
-    $("#chromexia-text").remove();
+	$("#webHelpDyslexia-blackUper").remove();
+    $("#webHelpDyslexia-blackBotton").remove();
+    $("#webHelpDyslexia-select-reader-size").val('');
+    $("#webHelpDyslexia-text").remove();
 	while(aux != 0)
 	{
-		var el = document.getElementById('chromexia-colorir'+controlid);
+		var el = document.getElementById('webHelpDyslexia-colorir'+controlid);
 		var cont = el.innerHTML;
-		$('#chromexia-colorir'+controlid).replaceWith(cont);
+		$('#webHelpDyslexia-colorir'+controlid).replaceWith(cont);
 		aux = aux - 1;
 		controlid = aux.toString();
 	}
@@ -84,8 +84,8 @@ function getAllBetween2(firstEl,lastEl)
  
  function removeElements ()
  {
-	$("#chromexia-blackUper").remove();
-	$("#chromexia-blackBotton").remove();
-	$("#chromexia-select-reader-size").val('');
-	$("#chromexia-text").remove();
+	$("#webHelpDyslexia-blackUper").remove();
+	$("#webHelpDyslexia-blackBotton").remove();
+	$("#webHelpDyslexia-select-reader-size").val('');
+	$("#webHelpDyslexia-text").remove();
  }

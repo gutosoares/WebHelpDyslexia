@@ -1,12 +1,12 @@
 /**
-* chromexia
+* webHelpDyslexia
 * Source: 
 *
 * Copyright (c) 2013 Luis Otávio de Avelar
 * Dual licensed under GPL and MIT licenses
 **/
 
-var chromexia = {
+var webHelpDyslexia = {
   status: false,
   
 	options: {
@@ -39,8 +39,8 @@ var chromexia = {
     * Fecha o editor
     */
   close: function() {
-    chromexia.widget.close();
-    //chromexia.status = false;
+    webHelpDyslexia.widget.close();
+    //webHelpDyslexia.status = false;
   }
 
 };

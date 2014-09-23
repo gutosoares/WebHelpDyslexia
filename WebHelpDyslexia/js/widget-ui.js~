@@ -28,18 +28,18 @@ var widgetUI = {
     */
   createFontSizeControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-control chromexia-left'
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-select-font-size',
-      class: 'chromexia-select',
+      id: 'webHelpDyslexia-select-font-size',
+      class: 'webHelpDyslexia-select',
       title: 'Tamanho da fonte'
     })
     .change(function() {
-       chromexia.style.cache.fontSize = $(this).val();
-      console.log('letter_spacing: ' + chromexia.style.cache.letter_spacing);
-       chromexia.style.addStylesheetRules();
+       webHelpDyslexia.style.cache.fontSize = $(this).val();
+      console.log('letter_spacing: ' + webHelpDyslexia.style.cache.letter_spacing);
+       webHelpDyslexia.style.addStylesheetRules();
     })
       .appendTo(container);
 
@@ -58,18 +58,18 @@ var widgetUI = {
     */
   createLetterSpacingControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-control chromexia-left'
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-select-letter-spacing',
-      class: 'chromexia-select',
+      id: 'webHelpDyslexia-select-letter-spacing',
+      class: 'webHelpDyslexia-select',
       title: 'Espaçamento entre caracteres'
     })
     .change(function() {
-       chromexia.style.cache.letter_spacing = $(this).val();
+       webHelpDyslexia.style.cache.letter_spacing = $(this).val();
        console.log("LetterSpacingControl");
-       chromexia.style.addStylesheetRules();
+       webHelpDyslexia.style.addStylesheetRules();
     })
     .appendTo(container);
 
@@ -89,18 +89,18 @@ var widgetUI = {
     */
   createLineHeightControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-control chromexia-left'
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-line-spacing',
-      class: 'chromexia-select',
+      id: 'webHelpDyslexia-line-spacing',
+      class: 'webHelpDyslexia-select',
       title: 'Espaçamento entre linhas'
     })
     .change(function() {
-       chromexia.style.cache.line_height = $(this).val();
-       console.log(chromexia.style.cache.line_height);
-       chromexia.style.addStylesheetRules();
+       webHelpDyslexia.style.cache.line_height = $(this).val();
+       console.log(webHelpDyslexia.style.cache.line_height);
+       webHelpDyslexia.style.addStylesheetRules();
     })
     .appendTo(container);
 
@@ -119,18 +119,18 @@ var widgetUI = {
     */
   createParagraphSpacingControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-control chromexia-left'
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-paragraph-spacing',
-      class: 'chromexia-select',
+      id: 'webHelpDyslexia-paragraph-spacing',
+      class: 'webHelpDyslexia-select',
       title: 'Espaçamento entre parágrafos'
     })
     .change(function() {
-       chromexia.style.cache.paragraph_spacing = $(this).val();
-      console.log(chromexia.style.cache.paragraph_spacing);
-       chromexia.style.addStylesheetRules();
+       webHelpDyslexia.style.cache.paragraph_spacing = $(this).val();
+      console.log(webHelpDyslexia.style.cache.paragraph_spacing);
+       webHelpDyslexia.style.addStylesheetRules();
     })
     .appendTo(container);
 
@@ -150,17 +150,17 @@ var widgetUI = {
     */
   createTextWidthControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-left'
+      class: 'webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-text-width',
-      class: 'chromexia-select',
+      id: 'webHelpDyslexia-text-width',
+      class: 'webHelpDyslexia-select',
       title: 'Largura do texto'
     })
     .change(function() {
-       chromexia.style.cache.text_width = $(this).val();
-       chromexia.style.addStylesheetRules();
+       webHelpDyslexia.style.cache.text_width = $(this).val();
+       webHelpDyslexia.style.addStylesheetRules();
     })
     .appendTo(container);
 
@@ -178,18 +178,18 @@ var widgetUI = {
     */
   createFontFamilyControl: function(property) {
     var container = $('<div>',{
-      class: 'chromexia-left'
+      class: 'webHelpDyslexia-left'
     });
 
     var select = $('<select>', {
-      id: 'chromexia-select-font-family',
-      class: 'chromexia-select chromexia-font-family',
+      id: 'webHelpDyslexia-select-font-family',
+      class: 'webHelpDyslexia-select webHelpDyslexia-font-family',
       title: 'Tipo da fonte'
     })
     .change(function() {
-      chromexia.style.cache.font_family = $(this).val();
-      console.log(chromexia.style.cache.font_family);
-      chromexia.style.addStylesheetRules();
+      webHelpDyslexia.style.cache.font_family = $(this).val();
+      console.log(webHelpDyslexia.style.cache.font_family);
+      webHelpDyslexia.style.addStylesheetRules();
     })
      .appendTo(container);
 
@@ -209,17 +209,17 @@ var widgetUI = {
     */
   createFontColorControl: function() {
     var container = $('<div>',{
-      class: 'chromexia-control chromexia-left'
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
     });
 
     var select = $('<div>', {
-      id: 'chromexia-font-color',
-      class: 'chromexia-color',
+      id: 'webHelpDyslexia-font-color',
+      class: 'webHelpDyslexia-color',
       title: 'Cor do texto'
     })
     .change(function() {
-       //chromexia.style.font_family = $(this).val();
-       //console.log(chromexia.style.font_family);
+       //webHelpDyslexia.style.font_family = $(this).val();
+       //console.log(webHelpDyslexia.style.font_family);
     })
      .spectrum({
         showPaletteOnly: true,
@@ -249,7 +249,7 @@ var widgetUI = {
      .appendTo(container);
      
      var select_color =  $('<div>', {
-      id: 'chromexia-set-font-color',
+      id: 'webHelpDyslexia-set-font-color',
     })
     .appendTo(select);
     
@@ -263,12 +263,12 @@ var widgetUI = {
     */
   createBackgroundColorControl: function() {
     var container = $('<div>',{
-      class: 'chromexia-left'
+      class: 'webHelpDyslexia-left'
     });
 
     var select = $('<div>', {
-      id: 'chromexia-backgorund-color',
-      class: 'chromexia-color',
+      id: 'webHelpDyslexia-backgorund-color',
+      class: 'webHelpDyslexia-color',
       title: 'Cor do fundo'
     })
      .spectrum({
@@ -298,7 +298,7 @@ var widgetUI = {
      .appendTo(container);
      
      var select_color =  $('<div>', {
-      id: 'chromexia-set-backgorund-color',
+      id: 'webHelpDyslexia-set-backgorund-color',
     })
     .appendTo(select);
 
@@ -310,7 +310,7 @@ var widgetUI = {
     */
   createSelectOption: function(text, property, value) {
     var option = $('<option>', {
-      class: 'chromexia-select-option',
+      class: 'webHelpDyslexia-select-option',
       text: text,
       value: value,
     });
@@ -322,22 +322,22 @@ var widgetUI = {
 
   // Modifica o plano de fundo
   setBackgroundColor: function(color) {
-    chromexia.style.cache.background_color = color.toHexString();
+    webHelpDyslexia.style.cache.background_color = color.toHexString();
 
     // Modifica a cor da borda do ícone do plano de fundo
-    $("#chromexia-set-backgorund-color").css("border-color", color.toHexString());
+    $("#webHelpDyslexia-set-backgorund-color").css("border-color", color.toHexString());
 
-     chromexia.style.addStylesheetRules();
+     webHelpDyslexia.style.addStylesheetRules();
   },
 
   // Modifica o plano de fundo
   setFontColor: function(color) {
-    chromexia.style.cache.font_color = color.toHexString();
+    webHelpDyslexia.style.cache.font_color = color.toHexString();
 
     // Modifica a cor da borda do ícone do plano de fundo
-    $("#chromexia-set-font-color").css("border-color", color.toHexString());
+    $("#webHelpDyslexia-set-font-color").css("border-color", color.toHexString());
 
-     chromexia.style.addStylesheetRules();
+     webHelpDyslexia.style.addStylesheetRules();
   }
 
 };

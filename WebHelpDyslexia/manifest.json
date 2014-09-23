@@ -25,7 +25,7 @@
         "js": [
             "js/libs/jquery.js",
             "js/libs/jquery.injectCSS.js",
-            "js/chromexia.js",
+            "js/webHelpDyslexia.js",
             "js/widget.js",
             "js/widget-ui.js",
             "js/libs/jquery.tipsy.js",

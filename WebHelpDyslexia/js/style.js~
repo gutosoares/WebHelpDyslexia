@@ -4,7 +4,7 @@
 * Generating, applying and saving CSS styling rules
 **/
 
-chromexia.style = {
+webHelpDyslexia.style = {
 
     // Amarmazena os valores de cada elemento do css
     cache: {
@@ -55,7 +55,7 @@ chromexia.style = {
   // Remove a tag <style> que é adicionado o estilo
   removeStylesheetRules: function(){
     this.reset();
-    $("#injectCSSchromexia").remove();
+    $("#injectCSSwebHelpDyslexia").remove();
   },
 
 
@@ -277,7 +277,7 @@ chromexia.style = {
 
           {  
               truncateFirst: true,
-              containerName: "injectCSSchromexia"
+              containerName: "injectCSSwebHelpDyslexia"
           });
       
 

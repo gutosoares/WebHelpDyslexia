@@ -4,7 +4,7 @@
 *
 **/
 
-chromexia.widget = {
+webHelpDyslexia.widget = {
   
   // Armazena os principais elementos da estrutura do plugin
   cache: {
@@ -19,98 +19,98 @@ chromexia.widget = {
 
   //Cria a interface de usuário
   create: function(){
-    var self = chromexia.widget;
+    var self = webHelpDyslexia.widget;
 
     // div que que contém o plugin
     self.cache.box = $("<div>", {
-      id: 'chromexia-box',
-      class: 'chromexia-top'
+      id: 'webHelpDyslexia-box',
+      class: 'webHelpDyslexia-top'
     })
     .appendTo(document.body);
 
     self.cache.container = $("<div>", {
-      id: 'chromexia-container'
+      id: 'webHelpDyslexia-container'
     });
 
     var italic_button = $("<div>", {
-      id: 'chromexia-italic-button',
-      class: 'chromexia-control chromexia-button chromexia-left',
+      id: 'webHelpDyslexia-italic-button',
+      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover itálico'
     })
     .click(function() {
-            chromexia.style.cache.font_style = "normal";
-            chromexia.style.addStylesheetRules();
+            webHelpDyslexia.style.cache.font_style = "normal";
+            webHelpDyslexia.style.addStylesheetRules();
           });
 
     var bold_button = $("<div>", {
-      id: 'chromexia-bold-button',
-      class: 'chromexia-control chromexia-button chromexia-left',
+      id: 'webHelpDyslexia-bold-button',
+      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover negrito'
     })
     .click(function() {
-            chromexia.style.cache.font_weight = "normal";
-            chromexia.style.addStylesheetRules();
+            webHelpDyslexia.style.cache.font_weight = "normal";
+            webHelpDyslexia.style.addStylesheetRules();
          });
 
     var text_left_button = $("<div>", {
-      id: 'chromexia-text-left-button',
-      class: 'chromexia-button',
+      id: 'webHelpDyslexia-text-left-button',
+      class: 'webHelpDyslexia-button',
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            chromexia.style.cache.text_align = "left";
-            chromexia.style.addStylesheetRules();
+            webHelpDyslexia.style.cache.text_align = "left";
+            webHelpDyslexia.style.addStylesheetRules();
          }); 
 
     var paragraph_spacing_button = $("<div>", {
-      id: 'chromexia-paragraph-spacing',
-      class: 'chromexia-button chromexia-left',
+      id: 'webHelpDyslexia-paragraph-spacing',
+      class: 'webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            chromexia.style.cache.text_align = "left";
-            chromexia.style.addStylesheetRules();
+            webHelpDyslexia.style.cache.text_align = "left";
+            webHelpDyslexia.style.addStylesheetRules();
       }); 
 
 
     var reset_button = $("<div>", {
-      id: 'chromexia-reset',
-      class: 'chromexia-button chromexia-left',
+      id: 'webHelpDyslexia-reset',
+      class: 'webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover o estilo aplicado'
     })
     .click(this.reset);
 
     var moverVertical_button = $("<div>", {
-      id: 'chromexia-move-vertical',
-      class: 'chromexia-control chromexia-button chromexia-button-right',
+      id: 'webHelpDyslexia-move-vertical',
+      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-button-right',
       title: 'Mover o plugin para baixo'
     })
     .click(this.togglePosition);
 
        // Botão para fechar o plugin
     var close_button = $("<div>", {
-      id: 'chromexia-close',
-      class: 'chromexia-button chromexia-button-right',
+      id: 'webHelpDyslexia-close',
+      class: 'webHelpDyslexia-button webHelpDyslexia-button-right',
       title: 'Fechar'
     })
-    .click(chromexia.close);
+    .click(webHelpDyslexia.close);
 
 
     var color = $("<div>", {
-      id: 'chromexia-font-color',
+      id: 'webHelpDyslexia-font-color',
       title: 'Cor do texto'
     });
 
      self.cache.font_section = $("<section>", {
-      id: 'chromexia-section-font',
-      class: 'chromexia-control-set'
+      id: 'webHelpDyslexia-section-font',
+      class: 'webHelpDyslexia-control-set'
     })
     .append(widgetUI.createFontSizeControl())
     .append(widgetUI.createFontFamilyControl());
 
     self.cache.color_section = $("<section>", {
-      id: 'chromexia-section-color',
-      class: 'chromexia-control-set'
+      id: 'webHelpDyslexia-section-color',
+      class: 'webHelpDyslexia-control-set'
     })
     .append(bold_button)
     .append(italic_button)
@@ -118,14 +118,14 @@ chromexia.widget = {
     .append(widgetUI.createBackgroundColorControl());
 
      self.cache.align_section = $("<section>", {
-      id: 'chromexia-section-align',
-      class: 'chromexia-control-set'
+      id: 'webHelpDyslexia-section-align',
+      class: 'webHelpDyslexia-control-set'
     })
     .append(text_left_button);
 
     self.cache.spacing_section = $("<section>", {
-      id: 'chromexia-section-align',
-      class: 'chromexia-control-set'
+      id: 'webHelpDyslexia-section-align',
+      class: 'webHelpDyslexia-control-set'
     })
     .append(widgetUI.createParagraphSpacingControl())
     .append(widgetUI.createLineHeightControl())
@@ -133,8 +133,8 @@ chromexia.widget = {
     .append(widgetUI.createTextWidthControl());
 
     self.cachereset_section = $("<section>", {
-      id: 'chromexia-section-reset',
-      class: 'chromexia-control-set'
+      id: 'webHelpDyslexia-section-reset',
+      class: 'webHelpDyslexia-control-set'
     })
     .append(reset_button);
 
@@ -158,75 +158,75 @@ chromexia.widget = {
 
   //  Fecha o plugin
   close: function() {
-    this.removeMargin(chromexia.options.position);
+    this.removeMargin(webHelpDyslexia.options.position);
     this.cache.box.hide();
   },
 
   // Reabre o plugin
   reopen: function() {
-    this.setMargin(chromexia.options.position);
+    this.setMargin(webHelpDyslexia.options.position);
     this.cache.box.show();
   },
 
   // Remove as alterações realizadas pelo plugin
   reset: function (){
-    chromexia.style.removeStylesheetRules();
+    webHelpDyslexia.style.removeStylesheetRules();
   },
 
   // Adiciona a margem no body, para o plugin não sobrepor a página
   setMargin: function (position) {
     if(position  == "top"){
-      $("body").removeClass("body-chromexia-bottom");
-      $("body").addClass("body-chromexia-top");
+      $("body").removeClass("body-webHelpDyslexia-bottom");
+      $("body").addClass("body-webHelpDyslexia-top");
     } else {
-      $("body").removeClass("body-chromexia-top");
-      $("body").addClass("body-chromexia-bottom");
+      $("body").removeClass("body-webHelpDyslexia-top");
+      $("body").addClass("body-webHelpDyslexia-bottom");
     }
   },
 
   // Remove a margin no body
   removeMargin: function (position) {
     if(position  == "bottom"){
-      $("body").removeClass("body-chromexia-bottom");
+      $("body").removeClass("body-webHelpDyslexia-bottom");
     } else {
-      $("body").removeClass("body-chromexia-top");
+      $("body").removeClass("body-webHelpDyslexia-top");
     }
   },
 
 
   // Move o plugin verticalmente
   togglePosition: function() {
-    var pos = chromexia.options.position;
+    var pos = webHelpDyslexia.options.position;
 
     if (pos === 'bottom') {
       pos = 'top';
 
       // remove a ediciona as classes que setam as margens da página para o plugin não sobrepor
-      $('#chromexia-box')
-      .removeClass('chromexia-bottom')
-      .addClass('chromexia-top');
+      $('#webHelpDyslexia-box')
+      .removeClass('webHelpDyslexia-bottom')
+      .addClass('webHelpDyslexia-top');
 
       //$("body").attr('style',"margin-top: 30px !important; margin-bottom: 0");
       
-      $('#chromexia-move-vertical').attr('title','Mover o plugin para baixo');
+      $('#webHelpDyslexia-move-vertical').attr('title','Mover o plugin para baixo');
 
     }
     else {
       pos = 'bottom';
 
       // remove e adicona as classes de posicionamento do plugin
-      $('#chromexia-box')
-      .removeClass('chromexia-top')
-      .addClass('chromexia-bottom');
+      $('#webHelpDyslexia-box')
+      .removeClass('webHelpDyslexia-top')
+      .addClass('webHelpDyslexia-bottom');
 
-      $('#chromexia-move-vertical').attr('title','Mover o plugin para cima');
+      $('#webHelpDyslexia-move-vertical').attr('title','Mover o plugin para cima');
 
 
       //$("body").attr('style',"margin-top: 0; margin-bottom: 30px !important");
     }
 
-    chromexia.widget.setMargin(pos);
-    chromexia.options.position = pos;
+    webHelpDyslexia.widget.setMargin(pos);
+    webHelpDyslexia.options.position = pos;
   }
 
 };
