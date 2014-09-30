@@ -294,13 +294,16 @@
 	top: 50%;
 	height: Auto;
 	width: auto;
-	background: white;
+	background-color: #f2f1f0;
+  color: #606060;
 	z-index:1000;
 	border-style: solid;
-    border-width: medium;
-	border-color: black;
-	font-size:18px;
+	font-size: 20px;
+  line-height: 30px;
 	padding: 5px 50px;
+  border-width: 2px;
+  border-color: #c0c0c0;
+  border-radius: 5px;
 }
 
 #webHelpDyslexia-floatdiv
@@ -322,7 +325,7 @@
 
 #webHelpDyslexia-select-reader-size{
   color: transparent !important;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACiklEQVR4XnWSX0hTYRjGny/NjWZTs9CZQ2zTi+jOisyCSNlNrR0QEjOKSUh30XVRdNduhDDKi2iLulAkGOvf1kWRoBLmTWjqZsudcpPMf1tznenOW9+3nYsD9oOH7zl8h/d5ePlYV1fXqNPpbPb7/ZAkCdo5NDQku91uube3N+bxeL63t7fLTy+nHkDPMBsYGKCOjg5sw2RBU5ofvrUncqj7DkCFH7y3sYMncoLBYEEheL0+hEIhIZ+P+7dCHPmdH7H3Hm0IinldTiKRAGPcMX6K7zzcx0XmAQDWUxJWo30gInC0BrDUWGC3N/yTHRyXyyVks9nIJbkguSSRGR8NgFRCNrmob5BVskgjzfPBSSaTKFik1rnP97Mcc2Jlrg+EPMW8AV+i0WCAqbRUu4DZXAaWH8HMZcKLq8RYACWVBCLSN/ijKCJRi40EX2Ph/j3KTH0hOZUGx3qjHJajTvwK9wEq9DswGo0wmUr/yQR68hjRK92oPmhFY7fEGq5fRP21C2Jy/OOLfDoVBmgNFEVBOp2G3P8QFfNh2K+eB2NZrMlztBydxdLXMDiWI2dBKpDNLOsbGAyGfHrwDfa7WvFbnkNq+SdTtlQuzFTVi8yFkQA24hn9O9AacGhlFblsBkpORTZHtKmqxCwlbPdhA8MPoKb5HJamowBh+wab5RUo2lcLmCugqDkxqKhxF9lsKZGZGH8JygEg0u/A4XCgpaUF1p4efPY+x866BlQ2nUTV8dOoPdGKyr3NYonVTWdE+paynh8QCAQmBgcH0dnZCX4+mp9H9SU3Ynf7ERmbQOzbLGbDI5gc/yAiFz+9gpojaDD8B19bm0OZmWkzrK2tFG2kp4kwVXezPAI9z/4CDx08N6JkM+cAAAAASUVORK5CYII=") 50% 50% no-repeat !important;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAOgAAADoBai3sFgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFcSURBVDiNlZKxSmNBFIa/M3MDESx2K0EF7Y0Lw21CLPRWki5i4TvYiKWgpYVPsIJPsMWyjViIWoi1txn76wNYJZApMvdYbCJRc2P8y+F8/3/OnCOqyiwSEUnT9BbohxD2vPc9AJnFwDm3aozpiMg9cAM8hRDa3vvelwatVmtuMBhslGV5CZwBNeAIeAghtKcaOOd+WGsfReRcVfeBlQ8lV8m0tpMk+VmW5fUweZKWKg2stcequisiRUVJEWPsfDJwzq1aa0+BA2AZ2J4AP8cYszzPCzP+2mw2F2q1mgE2gX8iclcBb+V5XsDYGrMsS7rdrlfVXETWgPWKtrMR/GYw/LBfqroI/K6Y+V3ySEZExBjTUdW/wOF3YACbpumdiFwAL8DOd2AAA/T5f56TLqqYBgOYEMIe8AScTEjOpsEAxnvfCyG0gYdZ2x7X2xobjcZ8vV7/AyzFGDuzwACvK4K7mlQmd2cAAAAASUVORK5CYII=") 50% 50% no-repeat !important;
   -webkit-appearance: none !important;
 }
 
@@ -340,7 +343,7 @@
 
 #webHelpDyslexia-withoutlighter-button{
   color: transparent !important;
-  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACTklEQVR4XpXRS0wTQQAG4H8f3W7T91ODeBBfBxIv9uBFDz2ZeDZISNXoCTxKqC1VAzZN0wWMRxMEHxfRpAcwHDDEk+KrhUIjkChXSEovSNPdyu44u9hqkTT6J5PZne33T6bDDA8PY29UVsOxda8x69E0DeoP9TnRSAfDMhOcibvEsiwEngeL5jGwUqmSzv6ujs5YJ/RZf9fU3XK2KVZ3cXjgKopTn1CczqE4+RHhu1foukIILeeb4irF966hRDErCNBDdjRUZYWWXEZGejG7bwFRif4jEk5ex9b0PDgdMwDouvV8O4qZObRcPIeKUg3x+525qijkgnQDa69zOGAy1z5ADB3H5tQHWBx2wCxgS96e4fdiWZZJ781evP+cheYFhO+At8KBO3sUJR3bbLDa7HgWH0XPw0h3/RpVVTVwXySC3HweDMOAMMAOCM4cPoHNV3Ow2O2w0jEx+w7hke7gy1ujWf5PHI3GsFQowGIWQBuwQ9dPth3B6pssWm0U2xqxbhlJklCpVEh/PI7l5RVj51pp66EWLCwuweXxwON14216El0PeurYKEgmk4VoNNr+9dtaw3/h83mRp9jt8sDn92L86SPcid6u4XpYRZYPFksliBYRgmgGx3Pw+2vYbTw/GR8zcKZvjOLGsAODg6GRoSE47HaYTSY4HQ4s5I2dKfbhMcXxeDyYvi/VcGPB+sbGYiqVCkrpNJwuJ76srCLgDyAQ+I3pTVG8f3j9vNvlctZmtQZFUZzmOC4AmnK5PJNIJGIG/o+cAnD612j7F/AT9EggHNziKJoAAAAASUVORK5CYII=") 50% 50% no-repeat !important;
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAMCAYAAABr5z2BAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAABKAAAASgB+3Je1gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAC9SURBVCiRjdIhTsNBFMThb0kNpgpTjyRBo3qHJr0JJ6CW1BFO0SZYDIITkGCQVagGU1cxmA0p6e6/3eSp2d97b2ZXEr3CDFukU+sh+Aa7ATj47sFjfJ2Ag3mvweoMeJlEC74/A37H6KgBptif9M3kjzmAJ1UcgveYHg4tSZRSRnjDBo+OzxXWeEjyX6/Tl/jAZSOTC7xi1QncHD+47lxY1Ccdt/RSfT/jpbH6LZ5wl+SzoVO99ULbYjb03X8BI1Mit2j85PwAAAAASUVORK5CYII=") 50% 50% no-repeat !important;
   -webkit-appearance: none !important;
 }
 

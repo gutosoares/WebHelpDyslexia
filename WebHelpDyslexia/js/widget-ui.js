@@ -1,7 +1,6 @@
 /**
-* Utility Methods to create various UI Controls for Basic Mode
-*   in Stylebot Editor
-**/
+* Cria os elementos da interface
+*/
 
 var widgetUI = {
   // constants

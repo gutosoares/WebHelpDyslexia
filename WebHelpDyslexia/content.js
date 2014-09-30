@@ -5,10 +5,10 @@
   *
   **/
 
-$(document).ready(function(){
-  if(webHelpDyslexia.status){
+$(document).ready(function() {
+  if(webHelpDyslexia.status) {
     webHelpDyslexia.reopen();
-  }else{
+  } else {
     webHelpDyslexia.initialize();
     webHelpDyslexia.open();
   }

@@ -1,10 +1,7 @@
 /**
 * webHelpDyslexia
-* Source: 
-*
-* Copyright (c) 2013 Luis Otávio de Avelar
-* Dual licensed under GPL and MIT licenses
-**/
+*/
+
 
 var webHelpDyslexia = {
   status: false,
@@ -21,7 +18,7 @@ var webHelpDyslexia = {
   },
 
   /**
-    * Abre o editor
+    * Abre o plugin
     */
   open: function() {
     this.widget.open();
@@ -29,18 +26,18 @@ var webHelpDyslexia = {
   },
   
   /**
-    * Reabre a janela do plugin
+    * Reabre o plugin
     */
   reopen: function() {
     this.widget.reopen();
   }, 
 
   /**
-    * Fecha o editor
+    * Fecha o plugin
     */
   close: function() {
     webHelpDyslexia.widget.close();
-    //webHelpDyslexia.status = false;
+    webHelpDyslexia.status = false;
   }
 
 };

@@ -1,7 +1,5 @@
 /**
-* stylebot.style
-*
-* Generating, applying and saving CSS styling rules
+* Cria e aplica o css na página
 **/
 
 webHelpDyslexia.style = {
@@ -134,7 +132,6 @@ webHelpDyslexia.style = {
     * Gera e insere as regras
     */
   addStylesheetRules: function () {
-    console.log('letter_spacing: ' + this.cache.letter_spacing);
     //$("#injectCSSContainer").remove();
 
     var font_size_h1 = null;
@@ -285,15 +282,10 @@ webHelpDyslexia.style = {
 
     var fontSize = $("p").css("font-size");
 
-    console.log("font size p: " + fontSize);
-
     var lineHeight = $("p").css("line-height");
-
-    console.log("line height p: " + lineHeight);
 
     var width = $("p").css("width");
 
-    console.log("width p: " +  width);
   }
 };
 

@@ -1,8 +1,6 @@
-/**
-*
-*   @requires jQuery
-*
-**/
+/*
+* Monta os elementos da
+*/
 
 webHelpDyslexia.widget = {
   
@@ -48,7 +46,7 @@ webHelpDyslexia.widget = {
       title: 'Busca por sinônimos'
     })
 	.click(function() {
-
+    
 			var selection = window.getSelection();
             var param = selection.toString();
 			//var responseContainer = document.getElementById('response');
@@ -341,6 +339,7 @@ webHelpDyslexia.widget = {
   reopen: function() {
     this.setMargin(webHelpDyslexia.options.position);
     this.cache.box.show();
+    console.log("Reabrindo...")
   },
 
   // Remove as alterações realizadas pelo plugin
