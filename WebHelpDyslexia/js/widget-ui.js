@@ -7,7 +7,6 @@ var widgetUI = {
   VALID_FONT_SIZE: ['','12','14', '16', '18', '22', '24', '26'],
   VALID_LINE_SPACING: ['', '0.8','1','1.2','1.4','1.8'],
   VALID_TEXT_WIDTH: ['', 'normal', 'pequeno', 'médio', 'grande'],
-  //VALID_TEXT_WIDTH: ['', '10', '50', '100','150','200'],
   VALID_PARAGRAPH_SPACING: ['','0.5', '1','2','3'],
   VALID_LETTER_SPACING: ['', 'normal', 'médio', 'grande'],
   VALID_FONT_FAMYLY: ['',
@@ -19,6 +18,11 @@ var widgetUI = {
                       'Georgia',
                       'Tahoma',
                       'Trebuchet MS'],
+   VALID_RULER_SIZE: {
+                      'normal': '',
+                      'pequeno': 0,
+                      'médio': 50,
+                      'grande': 100 },
 
   /**
     * Create a size <select> control
@@ -31,22 +35,24 @@ var widgetUI = {
     });
 
     var select = $('<select>', {
-      id: 'webHelpDyslexia-select-font-size',
-      class: 'webHelpDyslexia-select',
+      id: 'webHelpDyslexia-select-font-size', 
+      class: 'webHelpDyslexia-button',
       title: 'Tamanho da fonte'
     })
     .change(function() {
        webHelpDyslexia.style.cache.fontSize = $(this).val();
       console.log('letter_spacing: ' + webHelpDyslexia.style.cache.letter_spacing);
        webHelpDyslexia.style.addStylesheetRules();
-    })
-      .appendTo(container);
+    }).appendTo(container)
+      .css('background-image', 'url(' + chrome.extension.getURL('icons/text-height.svg') + ')');
 
-    var len = this.VALID_FONT_SIZE.length;
+
+    var len = this.VALID_FONT_SIZE.length; 
     for (var i = 0; i < len; i++) {
       this.createSelectOption(this.VALID_FONT_SIZE[i], null, this.VALID_FONT_SIZE[i])
       .appendTo(select);
     }
+
     return container;
   },
 
@@ -62,7 +68,7 @@ var widgetUI = {
 
     var select = $('<select>', {
       id: 'webHelpDyslexia-select-letter-spacing',
-      class: 'webHelpDyslexia-select',
+      class: 'webHelpDyslexia-button',
       title: 'Espaçamento entre caracteres'
     })
     .change(function() {
@@ -70,7 +76,8 @@ var widgetUI = {
        console.log("LetterSpacingControl");
        webHelpDyslexia.style.addStylesheetRules();
     })
-    .appendTo(container);
+    .appendTo(container)
+    .css('background-image', 'url(' +chrome.extension.getURL('icons/letter-spacing.svg')  + ')');
 
     var len = this.VALID_LETTER_SPACING.length;
     for (var i = 0; i < len; i++) {
@@ -93,7 +100,7 @@ var widgetUI = {
 
     var select = $('<select>', {
       id: 'webHelpDyslexia-line-spacing',
-      class: 'webHelpDyslexia-select',
+      class: 'webHelpDyslexia-button',
       title: 'Espaçamento entre linhas'
     })
     .change(function() {
@@ -101,7 +108,8 @@ var widgetUI = {
        console.log(webHelpDyslexia.style.cache.line_height);
        webHelpDyslexia.style.addStylesheetRules();
     })
-    .appendTo(container);
+    .appendTo(container)
+    .css('background-image', 'url(' + chrome.extension.getURL('icons/line-spacing.svg') + ')');
 
     var len = this.VALID_LINE_SPACING.length;
     for (var i = 0; i < len; i++) {
@@ -123,15 +131,15 @@ var widgetUI = {
 
     var select = $('<select>', {
       id: 'webHelpDyslexia-paragraph-spacing',
-      class: 'webHelpDyslexia-select',
+      class: 'webHelpDyslexia-button',
       title: 'Espaçamento entre parágrafos'
     })
     .change(function() {
        webHelpDyslexia.style.cache.paragraph_spacing = $(this).val();
-      console.log(webHelpDyslexia.style.cache.paragraph_spacing);
        webHelpDyslexia.style.addStylesheetRules();
     })
-    .appendTo(container);
+    .appendTo(container)
+    .css('background-image', 'url(' +chrome.extension.getURL('icons/paragraph-spacing.svg')  + ')');;
 
     var len = this.VALID_PARAGRAPH_SPACING.length;
     for (var i = 0; i < len; i++) {
@@ -153,15 +161,16 @@ var widgetUI = {
     });
 
     var select = $('<select>', {
-      id: 'webHelpDyslexia-text-width',
-      class: 'webHelpDyslexia-select',
+      id: 'webHelpDyslexia-column-width',
+      class: 'webHelpDyslexia-button',
       title: 'Largura do texto'
     })
     .change(function() {
        webHelpDyslexia.style.cache.text_width = $(this).val();
        webHelpDyslexia.style.addStylesheetRules();
     })
-    .appendTo(container);
+    .appendTo(container)
+    .css('background-image', 'url(' + chrome.extension.getURL('icons/column-width.svg')  + ')');
 
     var len = this.VALID_TEXT_WIDTH.length;
     for (var i = 0; i < len; i++) {
@@ -182,7 +191,7 @@ var widgetUI = {
 
     var select = $('<select>', {
       id: 'webHelpDyslexia-select-font-family',
-      class: 'webHelpDyslexia-select webHelpDyslexia-font-family',
+      class: 'webHelpDyslexia-button',
       title: 'Tipo da fonte'
     })
     .change(function() {
@@ -190,7 +199,8 @@ var widgetUI = {
       console.log(webHelpDyslexia.style.cache.font_family);
       webHelpDyslexia.style.addStylesheetRules();
     })
-     .appendTo(container);
+     .appendTo(container)
+     .css('background-image', 'url(' + chrome.extension.getURL('icons/font.svg')  + ')');
 
     var len = this.VALID_FONT_FAMYLY.length;
     for (var i = 0; i < len; i++) {
@@ -215,10 +225,6 @@ var widgetUI = {
       id: 'webHelpDyslexia-font-color',
       class: 'webHelpDyslexia-color',
       title: 'Cor do texto'
-    })
-    .change(function() {
-       //webHelpDyslexia.style.font_family = $(this).val();
-       //console.log(webHelpDyslexia.style.font_family);
     })
      .spectrum({
         showPaletteOnly: true,
@@ -250,7 +256,8 @@ var widgetUI = {
      var select_color =  $('<div>', {
       id: 'webHelpDyslexia-set-font-color',
     })
-    .appendTo(select);
+     .css('background-image', 'url(' + chrome.extension.getURL('icons/font-color.svg')  + ')')
+     .appendTo(select);
     
     return container;
   },
@@ -300,27 +307,31 @@ var widgetUI = {
      var select_color =  $('<div>', {
       id: 'webHelpDyslexia-set-backgorund-color',
     })
-    .appendTo(select);
+     .css('background-image', 'url(' + chrome.extension.getURL('icons/backgorund-color.svg')  + ')')
+     .appendTo(select);
 
     return container;
   },
   
   createLighterControl: function() {
-	var obj;
+  var obj;
     var select = $('<button>', {
       id: 'webHelpDyslexia-lighter-color',
-      class: 'webHelpDyslexia-color',
+      class: 'webHelpDyslexia-color webHelpDyslexia-button',
       title: 'Marcador'
     })
-	.click(function() {
-		var selection = window.getSelection();
-		var aux = parseInt(controlid)+1;
-		controlid = aux.toString();
-		obj = document.createElement("span");
-		obj.setAttribute("id", "webHelpDyslexia-colorir*"+controlid);
-		obj.appendChild(document.createTextNode(selection.toString()));
-		replaceSelectionWithNode(obj);
-    })
+    .click(function() {
+      var selection = window.getSelection();
+
+      console.log(selection.toString());
+
+      var aux = parseInt(controlid)+1;
+      controlid = aux.toString();
+      obj = document.createElement("span");
+      obj.setAttribute("id", "webHelpDyslexia-colorir*"+controlid);
+      obj.appendChild(document.createTextNode(selection.toString()));
+      replaceSelectionWithNode(obj);
+      })
      .spectrum({
         showPaletteOnly: true,
         showPalette:true,
@@ -345,12 +356,129 @@ var widgetUI = {
             "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
         ],
         change: this.setLighterColor
-      });
+      })
+      .css('background-image', 'url(' +chrome.extension.getURL('icons/highlight.svg')  + ')');
+
     return select;
   },
 
+  createDictionary: function() {
+    var container = $("<button>", {
+        id: 'webHelpDyslexia-test-button',
+        class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
+        title: 'Busca por sinônimos'
+      })
+      .click(function() {
+        var selection = window.getSelection();
+        var param = selection.toString();
+        
+        var request = new XMLHttpRequest();
+       
+        request.open("get", "http://dicionario.azurewebsites.net/api/values/"+param, false);
+        request.send();
+        removeElements();
+
+        var close_button = $("<span id='fechar-dicionario'>&times;</span>")
+          .click(function() {
+            $( "#webHelpDyslexia-text" ).remove();
+          });
+
+        div = $("<div id='webHelpDyslexia-text'>").prepend(close_button);
+
+        $("body").prepend(div);
+
+        var response = request.responseText;
+
+        response = response.replace(/"/g, "");
+        response = response.replace(/#/g, '"');
+        var obj = getJsonDictionary(response);
+        
+        var busca = $("<p id='webHelpDyslexia-dicionario-titulo'>");
+
+        var ul = $('<ul>');
+        $("#webHelpDyslexia-text").prepend(ul);
+
+        $(obj.sinonimos).each(function(index, item){
+          ul.append(
+            $(document.createElement('li')).text(item)
+          );
+        });
+
+        /*
+         * Cria o título separando a classe gramatical
+         * TODO: Criar método
+         */ 
+        var header = obj.chave.split(",");
+        var titulo = titulo = header[0];
+
+        $("#webHelpDyslexia-text").prepend(busca);
+        $("#webHelpDyslexia-dicionario-titulo").text(titulo);
+
+    }).css('background-image', 'url(' + chrome.extension.getURL('icons/book.svg') + ')');
+
+    function isJsonString (str) {
+      try {
+        JSON.parse(str);
+      } catch (e) {
+        return false;
+      }
+      return true;
+    }
+
+    function getJsonDictionary (response) {
+      var obj;
+      if(isJsonString(response)) {
+        obj = parseJSON(response);
+      } else {
+        obj = {"chave":"Oops","sinonimos":["Selecione uma palavra para para ver os seus sinônimos."]} 
+      }
+      return obj;
+    }
+
+    return container;      
+  },
+
+  createRulerControl: function() {
+    var container = $('<div>',{
+      class: 'webHelpDyslexia-control webHelpDyslexia-left'
+    });
+
+    var select = $('<select>', {
+      id: 'webHelpDyslexia-select-reader-size',
+      class: 'webHelpDyslexia-button',
+      title: 'Régua de Leitura'
+    })
+    .change (function() {
+
+      if(!document.getElementById('webHelpDyslexia-blackUper')) {
+        var divUpper = $("<div id='webHelpDyslexia-blackUper'>");
+        var divBottton = $("<div id='webHelpDyslexia-blackBotton'>");
+      }
+      sel = $(this).find('option:selected').val();
+
+      //Verifica se o tamanho selecionada para a régua não é vazio
+      if (sel.length != 0) {
+        tam = parseInt(sel);
+        $("body").prepend(divUpper);
+        $("body").prepend(divBottton);
+      } else {
+        $("#webHelpDyslexia-blackUper").remove();
+        $("#webHelpDyslexia-blackBotton").remove();
+      }
+
+    }).appendTo(container)
+      .css('background-image', 'url(' + chrome.extension.getURL('icons/ruler.svg') + ')');
+
+    
+    for(var val in this.VALID_RULER_SIZE) {
+      $('<option />', {value: this.VALID_RULER_SIZE[val], text: val}).appendTo(select);
+    }
+
+    return container;
+  },
+
   /**
-    *
+    * Cria as opções so select
     */
   createSelectOption: function(text, property, value) {
     var option = $('<option>', {
@@ -376,19 +504,10 @@ var widgetUI = {
   
   //Marca o texto com a cor selecionada
   setLighterColor: function(color) {
-	var cor = color.toString();
-	//alert(document.getElementById('webHelpDyslexia-colorir'+controlid).innerHTML);
-	
-	document.getElementById('webHelpDyslexia-colorir*'+controlid).style.setProperty('background-color', cor, 'important');
-	//document.getElementById('webHelpDyslexia-colorir'+controlid).style.backgroundColor = (cor);
-  },
-  
-  setLighter: function(color) {
-	var selection = window.getSelection();
-	var el = document.createElement("j");
-	el.setAttribute("id", "webHelpDyslexia-colorir");
-	el.appendChild(document.createTextNode(selection.toString()));
-	replaceSelectionWithNode(el);
+    var cor = color.toString();
+
+    document.getElementById('webHelpDyslexia-colorir*'+controlid)
+    .style.setProperty('background-color', cor, 'important');
   },
 
   // Modifica o plano de fundo

@@ -1,18 +1,21 @@
 /**
-  *
-  *
-  *
-  *
+  * Arquivo executado quando a página é carregada e quando o ícone 
+  * da extensão é acionado.
   **/
 
-$(document).ready(function() {
+try {
+
   if(webHelpDyslexia.status) {
     webHelpDyslexia.reopen();
   } else {
-    webHelpDyslexia.initialize();
     webHelpDyslexia.open();
   }
-});
+
+}
+catch(err){
+    alert("Recarregue a página para utilizar o Web Help Dyslexia!");
+}
+
 
 
 

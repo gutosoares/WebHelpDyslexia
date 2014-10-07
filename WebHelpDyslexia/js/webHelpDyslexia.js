@@ -7,16 +7,9 @@ var webHelpDyslexia = {
   status: false,
   
 	options: {
-		position: "top",
+		position: "top"
 	},
  
-  /**
-    * Inicializa as configurações do plugin
-    */
-  initialize: function() {
-    //this.style.initialize();
-  },
-
   /**
     * Abre o plugin
     */
@@ -37,7 +30,6 @@ var webHelpDyslexia = {
     */
   close: function() {
     webHelpDyslexia.widget.close();
-    webHelpDyslexia.status = false;
   }
 
 };

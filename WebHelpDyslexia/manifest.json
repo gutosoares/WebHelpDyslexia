@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "WebHelpDyslexia",
     "version": "0.0.3",
-    "description": "Personalize o layout de páginas web",
+    "description": "Ferramentas para facilitar a leitura de textos na web",
 
     "background":{
         "scripts":[
@@ -57,7 +57,23 @@
       "css/fonts/open-dyslexic.ttf",
       "css/fonts/tahoma.ttf",
       "css/fonts/trebuchet.ttf",
-      "css/fonts/verdana.ttf"
+      "css/fonts/verdana.ttf",
+      "icons/highlight.svg",
+      "icons/erase.svg",
+      "icons/ruler.svg",
+      "icons/book.svg",
+      "icons/letter-spacing.svg",
+      "icons/undo.svg",
+      "icons/column-width.svg",
+      "icons/line-spacing.svg",
+      "icons/paragraph-spacing.svg",
+      "icons/paragraph-left.svg",
+      "icons/backgorund-color.svg",
+      "icons/font-color.svg",
+      "icons/remove-italic.svg",
+      "icons/remove-bold.svg",
+      "icons/text-height.svg",
+      "icons/font.svg"
     ],
 
     "permissions" : [

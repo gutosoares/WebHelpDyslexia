@@ -4,15 +4,17 @@
 
 webHelpDyslexia.widget = {
   
-  // Armazena os principais elementos da estrutura do plugin
-  cache: {
+  // Armazena os principais elementos da estrutura da extension
+  extension: {
     box: null,
     container: null,
     font_section: null,
     color_section: null,
     align_section: null,
     spacing_section: null,
-    reset_section: null
+    reset_section: null,
+    highlight_section: null,
+    readingTools_section: null
   },
 
   //Cria a interface de usuário
@@ -20,13 +22,13 @@ webHelpDyslexia.widget = {
     var self = webHelpDyslexia.widget;
 
     // div que que contém o plugin
-    self.cache.box = $("<div>", {
+    self.extension.box = $("<div>", {
       id: 'webHelpDyslexia-box',
       class: 'webHelpDyslexia-top'
     })
     .appendTo(document.body);
 
-    self.cache.container = $("<div>", {
+    self.extension.container = $("<div>", {
       id: 'webHelpDyslexia-container'
     });
 
@@ -35,128 +37,14 @@ webHelpDyslexia.widget = {
       class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover itálico'
     })
-    .click(function() {
-            webHelpDyslexia.style.cache.font_style = "normal";
-            webHelpDyslexia.style.addStylesheetRules();
-          });
+    .click(
+      function() {
+        webHelpDyslexia.style.extension.font_style = "normal";
+        webHelpDyslexia.style.addStylesheetRules();
+      })
+     .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-italic.svg')  + ')');
 
-	var test_button = $("<button>", {
-      id: 'webHelpDyslexia-test-button',
-      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
-      title: 'Busca por sinônimos'
-    })
-	.click(function() {
-    
-			var selection = window.getSelection();
-            var param = selection.toString();
-			//var responseContainer = document.getElementById('response');
-			var request = new XMLHttpRequest();
-		    //request.open("get", "http://localhost:59862/api/values/"+param, false);
-			request.open("get", "http://dicionario.azurewebsites.net/api/values/"+param, false);
-			request.send();
-			removeElements();
-			div = $("<div id='webHelpDyslexia-text'>");
-			$("body").prepend(div);
-			//texto = $("<p id='meup'>");
-			//$("#webHelpDyslexia-text").prepend(texto);
-			//$("#meup").text(request.responseText);
-			var t = request.responseText;
-			var te = t.replace(/"/g, "");
-			te = te.replace(/#/g, '"');
-			var text = '{"name":"John"}';
-			var obj = parseJSON(te);
-			var busca = $("<p id='titulo'>");
-			var ul = $('<ul>');
-			$("#webHelpDyslexia-text").prepend(ul);
-			$(obj.sinonimos).each(function(index, item){
-				ul.append(
-					$(document.createElement('li')).text(item)
-				);
-			});
-			$("#webHelpDyslexia-text").prepend(busca);
-			$("#titulo").text(obj.chave);
-			
-			//div = $("<div id='webHelpDyslexia-text'>");
-			//dv2 = $("<div id='webHelpDyslexia-floatdiv'>");
-			//$("body").prepend(div);
-			//$("webHelpDyslexia-text").prepend(div2);
-			//texto = $("<p id='webHelpDyslexia-ptext'>");
-			//$("#webHelpDyslexia-floatdiv").prepend(texto);
-			//$("#webHelpDyslexia-ptext").text(request.responseText);
-			
-	 }); 
-	 
-	var reader_button1 = $("<div>", {
-      id: 'webHelpDyslexia-reader-button',
-      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
-      title: 'Leitor'
-    })
-    .click(function() {
-            //div = $("<div id='webHelpDyslexia-tail'>");
-			//$("body").prepend(div);
-			//div2 = $("<div id='webHelpDyslexia-black'>");
-			//$("#webHelpDyslexia-tail").prepend(div2);
-			//div3 = $("<div id='webHelpDyslexia-center'>");
-			//$("#webHelpDyslexia-tail").prepend(div3);
-			//div4 = $("<div id='webHelpDyslexia-black'>");
-			//$("#webHelpDyslexia-tail").prepend(div4);
-			removeElements();
-			var divUpper = $("<div id='webHelpDyslexia-blackUper'>");
-			var divBottton = $("<div id='webHelpDyslexia-blackBotton'>");
-			$("body").prepend(divUpper);
-			$("body").prepend(divBottton);
-         });
-	
-	var reader_button = $('<select>', {
-      id: 'webHelpDyslexia-select-reader-size',
-      class: 'webHelpDyslexia-select',
-      title: 'Régua de Leitura'
-    })
-    .change(function() {
-            //div = $("<div id='webHelpDyslexia-tail'>");
-			//$("body").prepend(div);
-			//div2 = $("<div id='webHelpDyslexia-black'>");
-			//$("#webHelpDyslexia-tail").prepend(div2);
-			//div3 = $("<div id='webHelpDyslexia-center'>");
-			//$("#webHelpDyslexia-tail").prepend(div3);
-			//div4 = $("<div id='webHelpDyslexia-black'>");
-			//$("#webHelpDyslexia-tail").prepend(div4);
-			if(!document.getElementById('webHelpDyslexia-blackUper'))
-			{
-				var divUpper = $("<div id='webHelpDyslexia-blackUper'>");
-				var divBottton = $("<div id='webHelpDyslexia-blackBotton'>");
-			}
-			sel = $(this).find('option:selected').val();
-			tam = parseInt(sel);
-			$("body").prepend(divUpper);
-			$("body").prepend(divBottton);
-         });
-	
-	var data = {
-		'nulo': '',
-		'pequeno': 0,
-		'médio': 50,
-		'grande': 100
-	}
-	
-	for(var val in data) {
-		$('<option />', {value: data[val], text: val}).appendTo(reader_button);
-	}
-	
-	var lighter_button = $("<button>", {
-      id: 'webHelpDyslexia-lighter-button',
-      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
-      title: 'Marcar Texto'
-    })
-    .click(function() {
-            var selection = window.getSelection();
-            var el = document.createElement("j");
-            el.setAttribute("id", "webHelpDyslexia-colorir");
-            el.appendChild(document.createTextNode(selection.toString()));
-            replaceSelectionWithNode(el);
-         });
-	 
-	 var selection = "/";
+	var selection = "/";
 	 
 	var withoutlighter_button = $("<button>", {
       id: 'webHelpDyslexia-withoutlighter-button',
@@ -164,23 +52,8 @@ webHelpDyslexia.widget = {
       title: 'Retirar marcação'
     })
     .click(function() {
-		/*var sel, range;
-		if (window.getSelection) 
-		{
-			sel = window.getSelection();
-			selection = selection+sel;
-			alert(selection);
-			alert(sel);
-			if (sel.rangeCount) 
-			{
-				range = sel.getRangeAt(0);
-				range.deleteContents();
-				range.insertNode(document.createTextNode(selection));
-				alert(selection);
-			}
-		}*/
-		
-		 if (window.getSelection) { // non-IE
+
+		  if (window.getSelection) { // non-IE
             userSelection = window.getSelection();
             rangeObject = userSelection.getRangeAt(0);
             if (rangeObject.startContainer == rangeObject.endContainer) {
@@ -205,7 +78,7 @@ webHelpDyslexia.widget = {
 				el.remove();
             }
         } 
-	 });
+	 }).css('background-image', 'url(' + chrome.extension.getURL('icons/erase.svg') + ')');
 			 
 		
     var bold_button = $("<div>", {
@@ -213,10 +86,12 @@ webHelpDyslexia.widget = {
       class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover negrito'
     })
-    .click(function() {
-            webHelpDyslexia.style.cache.font_weight = "normal";
-            webHelpDyslexia.style.addStylesheetRules();
-         });
+    .click(
+      function() {
+        webHelpDyslexia.style.extension.font_weight = "normal";
+        webHelpDyslexia.style.addStylesheetRules();
+      })
+      .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-bold.svg')  + ')');
 
     var text_left_button = $("<div>", {
       id: 'webHelpDyslexia-text-left-button',
@@ -224,9 +99,10 @@ webHelpDyslexia.widget = {
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            webHelpDyslexia.style.cache.text_align = "left";
+            webHelpDyslexia.style.extension.text_align = "left";
             webHelpDyslexia.style.addStylesheetRules();
-         }); 
+         })
+          .css('background-image', 'url(' +chrome.extension.getURL('icons/paragraph-left.svg')  + ')');; 
 
     var paragraph_spacing_button = $("<div>", {
       id: 'webHelpDyslexia-paragraph-spacing',
@@ -234,17 +110,17 @@ webHelpDyslexia.widget = {
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            webHelpDyslexia.style.cache.text_align = "left";
+            webHelpDyslexia.style.extension.text_align = "left";
             webHelpDyslexia.style.addStylesheetRules();
       }); 
-
 
     var reset_button = $("<div>", {
       id: 'webHelpDyslexia-reset',
       class: 'webHelpDyslexia-button webHelpDyslexia-left',
       title: 'Remover o estilo aplicado'
     })
-    .click(this.reset);
+    .click(this.reset)
+    .css('background-image', 'url(' + chrome.extension.getURL('icons/undo.svg')  + ')');;
 
     var moverVertical_button = $("<div>", {
       id: 'webHelpDyslexia-move-vertical',
@@ -267,14 +143,14 @@ webHelpDyslexia.widget = {
       title: 'Cor do texto'
     });
 
-     self.cache.font_section = $("<section>", {
+     self.extension.font_section = $("<section>", {
       id: 'webHelpDyslexia-section-font',
       class: 'webHelpDyslexia-control-set'
     })
     .append(widgetUI.createFontSizeControl())
     .append(widgetUI.createFontFamilyControl());
 
-    self.cache.color_section = $("<section>", {
+    self.extension.color_section = $("<section>", {
       id: 'webHelpDyslexia-section-color',
       class: 'webHelpDyslexia-control-set'
     })
@@ -284,14 +160,14 @@ webHelpDyslexia.widget = {
     .append(widgetUI.createFontColorControl())
     .append(widgetUI.createBackgroundColorControl());
 
-     self.cache.align_section = $("<section>", {
+     self.extension.align_section = $("<section>", {
       id: 'webHelpDyslexia-section-align',
       class: 'webHelpDyslexia-control-set'
     })
     .append(text_left_button);
 
-    self.cache.spacing_section = $("<section>", {
-      id: 'webHelpDyslexia-section-align',
+    self.extension.spacing_section = $("<section>", {
+      id: 'webHelpDyslexia-section-spacing',
       class: 'webHelpDyslexia-control-set'
     })
     .append(widgetUI.createParagraphSpacingControl())
@@ -299,53 +175,63 @@ webHelpDyslexia.widget = {
     .append(widgetUI.createLetterSpacingControl())
     .append(widgetUI.createTextWidthControl());
 
-    self.cachereset_section = $("<section>", {
+    self.extension.highlight_section = $("<section>", {
+      id: 'webHelpDyslexia-section-highlight',
+      class: 'webHelpDyslexia-control-set'
+    })
+    .append(widgetUI.createLighterControl())
+    .append(withoutlighter_button);
+   
+    self.extension.readingTools_section = $("<section>", {
+      id: 'webHelpDyslexia-section-tools',
+      class: 'webHelpDyslexia-control-set'
+    })
+    .append(widgetUI.createDictionary())
+    .append(widgetUI.createRulerControl());
+
+    self.extension.reset_section = $("<section>", {
       id: 'webHelpDyslexia-section-reset',
       class: 'webHelpDyslexia-control-set'
     })
-		
-	.append(test_button)
-	.append(reader_button)
-	.append(widgetUI.createLighterControl())
-	//.append(lighter_button)
-	.append(withoutlighter_button)
     .append(reset_button);
 
-    self.cache.container.appendTo(self.cache.box)
+    self.extension.container.appendTo(self.extension.box)
     .append(close_button)
     .append(moverVertical_button)
-    .append(self.cache.font_section)
-    .append(self.cache.color_section)
-    .append(self.cache.align_section)
-    .append(self.cache.spacing_section)
-    .append(self.cachereset_section);
+    .append(self.extension.font_section)
+    .append(self.extension.color_section)
+    .append(self.extension.align_section)
+    .append(self.extension.spacing_section)
+    .append(self.extension.highlight_section)
+    .append(self.extension.readingTools_section)
+    .append(self.extension.reset_section);
 
     this.setMargin("top");
   },
 
   // Abre o widget
   open: function(){
-    if(!this.cache.box)
+    if(!this.extension.box)
       this.create();
   },
 
   //  Fecha o plugin
   close: function() {
     this.removeMargin(webHelpDyslexia.options.position);
-    this.cache.box.hide();
+    this.extension.box.hide();
   },
 
   // Reabre o plugin
   reopen: function() {
     this.setMargin(webHelpDyslexia.options.position);
-    this.cache.box.show();
+    this.extension.box.show();
     console.log("Reabrindo...")
   },
 
   // Remove as alterações realizadas pelo plugin
   reset: function (){
     webHelpDyslexia.style.removeStylesheetRules();
-	removeHighLithAndScreens();
+    removeHighLithAndScreens();
   },
  
   // Adiciona a margem no body, para o plugin não sobrepor a página
