@@ -35,16 +35,43 @@ webHelpDyslexia.widget = {
     var italic_button = $("<div>", {
       id: 'webHelpDyslexia-italic-button',
       class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
-      title: 'Remover itálico'
+      title: 'Remover texto em itálico'
     })
     .click(
       function() {
-        webHelpDyslexia.style.extension.font_style = "normal";
+        webHelpDyslexia.style.cache.font_style = "normal";
         webHelpDyslexia.style.addStylesheetRules();
       })
      .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-italic.svg')  + ')');
 
-	var selection = "/";
+
+  var bold_button = $("<div>", {
+      id: 'webHelpDyslexia-bold-button',
+      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
+      title: 'Remover texto em negrito'
+    })
+    .click(
+      function() {
+        webHelpDyslexia.style.cache.font_weight = "normal";
+        webHelpDyslexia.style.addStylesheetRules();
+      })
+      .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-bold.svg')  + ')');
+
+
+   var underline_button = $("<div>", {
+      id: 'webHelpDyslexia-underline-button',
+      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
+      title: 'Remover texto sublinhado'
+    })
+    .click(
+      function() {
+        webHelpDyslexia.style.cache.text_decoration = "none";
+        webHelpDyslexia.style.addStylesheetRules();
+      })
+      .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-underline.svg')  + ')');
+
+
+	//var selection = "/";
 	 
 	var withoutlighter_button = $("<button>", {
       id: 'webHelpDyslexia-withoutlighter-button',
@@ -80,26 +107,13 @@ webHelpDyslexia.widget = {
         } 
 	 }).css('background-image', 'url(' + chrome.extension.getURL('icons/erase.svg') + ')');
 			 
-		
-    var bold_button = $("<div>", {
-      id: 'webHelpDyslexia-bold-button',
-      class: 'webHelpDyslexia-control webHelpDyslexia-button webHelpDyslexia-left',
-      title: 'Remover negrito'
-    })
-    .click(
-      function() {
-        webHelpDyslexia.style.extension.font_weight = "normal";
-        webHelpDyslexia.style.addStylesheetRules();
-      })
-      .css('background-image', 'url(' + chrome.extension.getURL('icons/remove-bold.svg')  + ')');
-
     var text_left_button = $("<div>", {
       id: 'webHelpDyslexia-text-left-button',
       class: 'webHelpDyslexia-button',
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            webHelpDyslexia.style.extension.text_align = "left";
+            webHelpDyslexia.style.cache.text_align = "left";
             webHelpDyslexia.style.addStylesheetRules();
          })
           .css('background-image', 'url(' +chrome.extension.getURL('icons/paragraph-left.svg')  + ')');; 
@@ -110,7 +124,7 @@ webHelpDyslexia.widget = {
       title: 'Alinhar texto à esquerda'
     })
     .click(function() {
-            webHelpDyslexia.style.extension.text_align = "left";
+            webHelpDyslexia.style.cache.text_align = "left";
             webHelpDyslexia.style.addStylesheetRules();
       }); 
 
@@ -157,6 +171,7 @@ webHelpDyslexia.widget = {
 	
     .append(bold_button)
     .append(italic_button)
+    .append(underline_button)
     .append(widgetUI.createFontColorControl())
     .append(widgetUI.createBackgroundColorControl());
 

@@ -395,7 +395,7 @@ var widgetUI = {
         
         var busca = $("<p id='webHelpDyslexia-dicionario-titulo'>");
 
-        var ul = $('<ul>');
+        var ul = $("<ul id='webHelpDyslexia-dicionario-sinonimos'>");
         $("#webHelpDyslexia-text").prepend(ul);
 
         $(obj.sinonimos).each(function(index, item){

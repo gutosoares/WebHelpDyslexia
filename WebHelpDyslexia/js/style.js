@@ -17,7 +17,7 @@ webHelpDyslexia.style = {
       letter_spacing: null,
       text_width: null,
       text_decoration: null,
-      paragraph_spacing: null
+      paragraph_spacing: null,
     },
 
 
@@ -216,6 +216,11 @@ webHelpDyslexia.style = {
       this.cache.text_decoration = "underline !important";
     }
 
+
+    if(this.cache.text_decoration !== null){
+      this.cache.text_decoration = "none !important";
+    }
+
     //Responsável por remover e adicionar o estilo à página
     $.injectCSS({
           '*': {
@@ -223,6 +228,7 @@ webHelpDyslexia.style = {
                   color: this.cache.font_color  + " !important",
                   font_family: fontType,
                   font_style: this.cache.font_style + " !important",
+                  text_decoration: this.cache.text_decoration,
                   font_weight: this.cache.font_weight + " !important",
                   letter_spacing: letterSpacing + "px !important"
               },
@@ -268,9 +274,6 @@ webHelpDyslexia.style = {
           '@font-face': {
                   font_family: this.cache.font_family,
                   src: 'url(' + this.font(this.cache.font_family) + ')'
-              },
-            'a':{
-                  text_decoration: this.cache.text_decoration
               }
           },
 

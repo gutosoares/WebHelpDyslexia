@@ -73,7 +73,8 @@
       "icons/remove-italic.svg",
       "icons/remove-bold.svg",
       "icons/text-height.svg",
-      "icons/font.svg"
+      "icons/font.svg",
+      "icons/remove-underline.svg"
     ],
 
     "permissions" : [
